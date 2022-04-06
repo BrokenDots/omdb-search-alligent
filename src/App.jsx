@@ -1,11 +1,10 @@
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 //importing css
 import './App.css';
 
 //importing custom hooks and components
-import useSearch from './Custom Hooks/useSearch';
 import ResultSingle from './Components/ResultSingle/ResultSingle';
 import ResultListItem from './Components/ResultListItem/ResultListItem';
 
@@ -23,9 +22,7 @@ function App() {
   )
 
   //this sets the final data state that will be used with the api
-  const [requestedData, setRequestedData] = useState({
-    
-  });
+  const [requestedData, setRequestedData] = useState({});
 
 
   //------FORM RELATED STUFF------
@@ -47,12 +44,7 @@ function App() {
   }
   //-------FORM RELATED STUFF-------
 
-  const page = useRef(1);
-
-  //get results from the api using custom hook
-  const {results, resultCount, hasMore} = useSearch(requestedData.query, requestedData.type, requestedData.yearLowerLimit, requestedData.yearUpperLimit, page.current)
-
-
+  
   //right side div
   const [modalState, setModalState] = useState()
   function onItemClick(id){
@@ -91,7 +83,7 @@ function App() {
       <div className="result-list-div">
           <h2>List goes here</h2>
           
-          <ResultListItem resultArray={results} func={onItemClick}/>
+          <ResultListItem data={requestedData} func={onItemClick}/>
       </div>
 
       <div className="testDiv">
