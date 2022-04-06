@@ -6,7 +6,6 @@ function useSearch(query, type, yearLowerLimit, yearUpperLimit, page){
     const [resultCount, setResultCount] = useState(0);
     const [hasMore, setHasMore] = useState(true);
 
-    console.log("the type is" + type)
 
     //Reset out required information state whenever the query changes
     useEffect(()=>{
