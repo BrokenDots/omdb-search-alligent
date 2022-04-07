@@ -13,7 +13,8 @@ function useSearch(query, type, yearLowerLimit, yearUpperLimit, page){
     }, [query, type])
 
     useEffect(()=>{
-    fetch(`http://www.omdbapi.com/?apikey=6187632f&s=${query}&page=${page}&type=${type}`)
+    if(query){
+        fetch(`http://www.omdbapi.com/?apikey=6187632f&s=${query}&page=${page}&type=${type}`)
         .then(response => {
             console.log(response)
             return response.json();
@@ -26,6 +27,8 @@ function useSearch(query, type, yearLowerLimit, yearUpperLimit, page){
             else
                 setHasMore(false);
         })
+    }
+    
     },[query, page, type])
 
     return {results, resultCount, hasMore }

@@ -31,7 +31,6 @@ export default function ResultListItem(props){
             if (entries[0].isIntersecting) {
                 // setPageNumber(prevPageNumber => prevPageNumber + 1)
                 setPage(prev => prev + 1);
-                console.log("can see");
             }
         })
         if (node) observer.current.observe(node)
@@ -43,19 +42,45 @@ export default function ResultListItem(props){
         setPage(1)
     },[props.data])
 
+
+    //trying to filter year
+    var filteredResults
+    if(requestedData.yearLowerLimit && requestedData.yearUpperLimit){
+        filteredResults = results.filter((ele)=>{
+            return((ele.Year>=requestedData.yearLowerLimit)&&(ele.Year<=requestedData.yearUpperLimit))
+        });
+    }
+    else{
+        filteredResults = results;
+    }
+   
+
     
     
     return (
-        <div className="result-list-div">
-            {results.map((ele, index)=>{
-                if(results.length === index + 1){
+        <div className="result-list">
+            
+            {filteredResults.map((ele, index)=>{
+                if(filteredResults.length === index + 1){
                     return(
-                        <h2 ref={lastItem} key={index} onClick={()=>{onClickFunction(ele.imdbID)}}>{ele.Title}</h2>
+                        <div ref={lastItem} className="list-item" key={index} onClick={()=>{onClickFunction(ele.imdbID)}}>
+                            <img className="thumbnail" src={ele.Poster} alt="" />
+                            <div className="small-info">
+                                <div className="item-title">{ele.Title}</div>
+                                <div className="item-year">{ele.Year}</div>
+                            </div>
+                        </div>
                     )
                 }
                 else{
                     return(
-                        <h2 key={index} onClick={()=>{onClickFunction(ele.imdbID)}}>{ele.Title}</h2>
+                        <div className="list-item" key={index} onClick={()=>{onClickFunction(ele.imdbID)}}>
+                            <img className="thumbnail" src={ele.Poster} alt="" />
+                            <div className="small-info">
+                                <div className="item-title">{ele.Title}</div>
+                                <div className="item-year">{ele.Year}</div>
+                            </div>
+                        </div>
                     )
                 }
 

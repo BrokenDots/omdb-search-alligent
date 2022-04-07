@@ -80,15 +80,18 @@ function App() {
         <button type="submit">submit</button>
       </form>
 
-      <div className="result-list-div">
-          <h2>List goes here</h2>
-          
-          <ResultListItem data={requestedData} func={onItemClick}/>
-      </div>
+      <div className="content">
+        <div className="result-list-div">
+            <h2 style={{paddingLeft : "1.5rem"}}>RESULTS</h2>
+            
+            <ResultListItem data={requestedData} func={onItemClick}/>
+        </div>
 
-      <div className="testDiv">
-          <ResultSingle id={modalState} />
+        <div className="result-big-div">
+            <ResultSingle id={modalState} />
+        </div>
       </div>
+      
       
     </div>
   );
