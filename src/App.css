@@ -21,8 +21,37 @@
 .search-box{
     background-color: var(--accent-color);
     color: white;
-    padding: 1rem 1.5rem;
-}  
+    padding: 2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.query-field{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap : 1em;
+}
+
+.query-field input[type=text] {
+    all: unset;
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+    color: white;
+    box-shadow: none;
+    outline: none;
+    font-size: var(--step-1);
+    
+  }
+
+.radio-div{
+    font-size: var(--step--1);
+}
+
+input[type=radio] {
+    accent-color: var(--accent-color);
+}
 
 .content{
     display: grid;;
@@ -31,4 +60,8 @@
 
 .result-list-div{
     border-right: 1px solid var(--border-color);
+}
+
+.result-big-div{
+    padding: 2rem;
 }

@@ -1,0 +1,91 @@
+.result-fullinfo-div{
+  
+}
+
+.movie-hero{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap : 2rem;
+  padding: 2rem 0;
+  border-bottom: solid var(--border-color) ;
+}
+
+.hero-text{
+    display: grid;
+}
+
+.information{
+  align-self: flex-end;
+}
+
+.watchlist-btn{
+    font-size: var(--step-0);
+    border: 2px solid black;
+    border-radius: 0.25em;
+    width: fit-content;
+    padding : 0.5em 1em;
+    align-self: flex-start;
+    justify-self: flex-end;
+}
+
+.movie-hero .title{
+  font-size: var(--step-4);
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.movie-hero .poster{
+  width: 100%;
+  aspect-ratio: 3/4;
+}
+
+.hero-text .additional-info{
+  display: flex;
+  font-size: var(--step--1);
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+  align-items: center;
+}
+
+.rated{
+  border: solid black 1px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.actors{
+  font-size: var(--step--1);
+}
+
+.synopsis{
+  padding: 2rem 0;
+  font-size: var(--step--1);
+  border-bottom: solid var(--border-color) ;
+  line-height: 1.5;
+}
+
+.ratings{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.rating-block{
+  padding : 2em 0;
+  align-items: center;
+  justify-self: center;
+}
+
+
+.rating{
+  text-align: center;
+  font-size: var(--step-0);
+  margin-bottom: 0.5em;
+}
+
+.rating-name{
+  font-size: var(--step--1);
+  text-align: center;
+}
+

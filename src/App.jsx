@@ -25,7 +25,11 @@ function App() {
   const [requestedData, setRequestedData] = useState({});
 
 
-  //------FORM RELATED STUFF------
+  //------FORM RELATED------
+  //storing the form inputs in the state variable
+  //as the user types, the inputs are stored in formData
+  //on submitting the form, the inputs are stored in the state variable requestedData
+  //I used 2 different states for this because I only want the final input to be passed on to the children components as props. If I didnt do that, every keystroke would would cause it the pass the incomplete input as a prop and result in unnecessary api calls
   function changeHandler(e){
     e.preventDefault();
     let name = e.target.name;
@@ -42,15 +46,16 @@ function App() {
     e.preventDefault();
     setRequestedData(formData)
   }
-  //-------FORM RELATED STUFF-------
+  
 
   
-  //right side div
+  //this state is used to render the info of the movie clicked aka ResultSingle Component.
+  //even though the onClick function is defined here, it is used in the ResultList component by passing to it as a prop. This is because that is where we can get the id.
+  //However, we had to define the state and function here since the App component is the one rendering the ResultSingle comp, not the list component.
   const [modalState, setModalState] = useState()
   function onItemClick(id){
     setModalState(id);
   }
-  //right side div
   
 
 
@@ -60,7 +65,11 @@ function App() {
 
       <form className="search-box" onSubmit={submitHandler}>
 
-        <input type="text" name="query" onChange={changeHandler} defaultValue="query" />
+        <div className="query-field">
+          <i className="fa-solid fa-magnifying-glass fa-2x"></i>
+          <input type="text" name="query" onChange={changeHandler} autoFocus />    
+        </div>
+        
         <input type="text" name="yearLowerLimit" onChange={changeHandler} defaultValue="yearLowerLimit" />
         <input type="text" name="yearUpperLimit" onChange={changeHandler} defaultValue="yearUpperLimit"/>
 
@@ -77,7 +86,7 @@ function App() {
           <label htmlFor="episodes">Episodes</label>
           </div>
 
-        <button type="submit">submit</button>
+        <button type="submit" style={{display : "none"}}>submit</button>
       </form>
 
       <div className="content">
