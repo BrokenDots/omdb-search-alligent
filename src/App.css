@@ -141,7 +141,7 @@ input[type=radio] {
 }
 
 .second-slider::-webkit-slider-thumb {
-    background: #635c5d;
+    background: #fff;
 }
 
 .slider input::-moz-range-track {

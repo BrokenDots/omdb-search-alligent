@@ -30,7 +30,7 @@ function App() {
   //storing the form inputs in the state variable
   //as the user types, the inputs are stored in formData
   //on submitting the form, the inputs are stored in the state variable requestedData
-  //I used 2 different states for this because I only want the final input to be passed on to the children components as props. If I didnt do that, every keystroke would would cause it the pass the incomplete input as a prop and result in unnecessary api calls
+  //I used 2 different states for this because I only want the final input to be passed on to the children components as props. If I didnt do that, every keystroke would would pass the incomplete input as a prop and result in unnecessary api calls
   function changeHandler(e){
     e.preventDefault();
     let name = e.target.name;
@@ -43,14 +43,15 @@ function App() {
     })
   }
 
+
+  //called on hitting enter
   function submitHandler(e){
     e.preventDefault();
     setRequestedData(formData)
   }
   
 
-  
-  
+
   //this state is used to render the info of the movie clicked aka ResultSingle Component.
   //this is one of those cases where we need to pass data from a child comp to a parent component
   //thats because the ResultList component is the one that had the id needed to render the ResultSingle component
@@ -62,8 +63,6 @@ function App() {
   
 
   
-
-
   return (
     <div className="App">
       
@@ -74,22 +73,13 @@ function App() {
           <input type="text" name="query" onChange={changeHandler} autoFocus />    
         </div>
         
-        
         <input type="text" className='year-field' value={formData.yearLowerLimit} readOnly  />
-        
-        
         <div className="slide-container">
             <input type="range" min="1900" max="2022" name="yearLowerLimit" value={formData.yearLowerLimit} className="slider" id="myRange1" onChange={changeHandler} />
             <input type="range" min="1900" max="2022" name="yearUpperLimit" value={formData.yearUpperLimit} className="slider second-slider" id="myRange2" onChange={changeHandler}/>
         </div>
-
         <input type="text" className='year-field' value={formData.yearUpperLimit} readOnly  />
 
-        
-
-        
-        
-        
         <div className="radio-div">
           <div className="field-title">TYPE</div>
           <input type="radio" id="any" name="type" value='' onChange={changeHandler}/>
@@ -108,7 +98,6 @@ function App() {
       <div className="content">
         <div className="result-list-div">
             <h2 style={{paddingLeft : "1.5rem"}}>RESULTS</h2>
-            
             <ResultListItem data={requestedData} func={onItemClick}/>
         </div>
 
