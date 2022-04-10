@@ -45,6 +45,19 @@
     
   }
 
+
+  .year-field{
+    all: unset;
+    width: 3em;
+    padding: 4px;
+    box-sizing: border-box;
+    background: none;
+    color: white;
+    box-shadow: none;
+    outline: none;
+  }
+
+
 .radio-div{
     font-size: var(--step--1);
 }
@@ -65,3 +78,85 @@ input[type=radio] {
 .result-big-div{
     padding: 2rem;
 }
+
+
+
+/* DOUBLE SLIDER STYLES */
+.slide-container{
+    position: relative;
+    width : 200px;
+    
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    top : 40%;
+    height: 5px;
+    position: absolute;
+    background: #a4a4a4;
+    outline: none;
+}
+
+.slider input {
+    pointer-events: none;
+    position: absolute;
+    overflow: hidden;
+    left: 25%;
+    top: 15px;
+    width: 50%;
+    outline: none;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 1.5em;
+    background: #ea4550;
+    cursor: pointer;
+
+    pointer-events: all;
+    position: relative;
+    z-index: 1;
+    outline: 0;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ea4550;
+    cursor: pointer;
+
+    pointer-events: all;
+    position: relative;
+    z-index: 10;
+    -moz-appearance: none;
+    width: 9px;
+}
+
+.second-slider::-webkit-slider-thumb {
+    background: #635c5d;
+}
+
+.slider input::-moz-range-track {
+    position: relative;
+    z-index: -1;
+    border: 0;
+}
+.slider input:last-of-type::-moz-range-track {
+    -moz-appearance: none;
+    background: none transparent;
+    border: 0;
+
+}
+.slider input[type=range]::-moz-focus-outer {
+border: 0;
+}
+
+
