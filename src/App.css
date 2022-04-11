@@ -49,12 +49,12 @@
   .year-field{
     all: unset;
     width: 3em;
-    padding: 4px;
     box-sizing: border-box;
     background: none;
     color: white;
     box-shadow: none;
     outline: none;
+    margin-inline: 1em;
   }
 
 
@@ -92,6 +92,7 @@ input[type=radio] {
     -webkit-appearance: none;
     width: 100%;
     top : 40%;
+    left : -3%;
     height: 5px;
     position: absolute;
     background: #a4a4a4;

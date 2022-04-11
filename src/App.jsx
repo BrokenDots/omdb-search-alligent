@@ -73,12 +73,15 @@ function App() {
           <input type="text" name="query" onChange={changeHandler} autoFocus />    
         </div>
         
-        <input type="text" className='year-field' value={formData.yearLowerLimit} readOnly  />
-        <div className="slide-container">
-            <input type="range" min="1900" max="2022" name="yearLowerLimit" value={formData.yearLowerLimit} className="slider" id="myRange1" onChange={changeHandler} />
-            <input type="range" min="1900" max="2022" name="yearUpperLimit" value={formData.yearUpperLimit} className="slider second-slider" id="myRange2" onChange={changeHandler}/>
+        <div style={{display : "inherit"}}>
+          <input type="text" className='year-field' value={formData.yearLowerLimit} readOnly  />
+          <div className="slide-container">
+              <input type="range" min="1900" max="2022" name="yearLowerLimit" value={formData.yearLowerLimit} className="slider" id="myRange1" onChange={changeHandler} />
+              <input type="range" min="1900" max="2022" name="yearUpperLimit" value={formData.yearUpperLimit} className="slider second-slider" id="myRange2" onChange={changeHandler}/>
+          </div>
+          <input type="text" className='year-field' value={formData.yearUpperLimit} readOnly  />
         </div>
-        <input type="text" className='year-field' value={formData.yearUpperLimit} readOnly  />
+        
 
         <div className="radio-div">
           <div className="field-title">TYPE</div>
