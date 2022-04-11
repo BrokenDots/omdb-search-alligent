@@ -17,7 +17,7 @@ function App() {
     {
       query : "",
       type : '',
-      yearLowerLimit : 1950,
+      yearLowerLimit : 1900,
       yearUpperLimit : 2022
     }
   )
@@ -70,7 +70,7 @@ function App() {
 
         <div className="query-field">
           <i className="fa-solid fa-magnifying-glass fa-2x"></i>
-          <input type="text" name="query" onChange={changeHandler} autoFocus />    
+          <input type="text" autoComplete="off" name="query" onChange={changeHandler} autoFocus />    
         </div>
         
         <div style={{display : "inherit"}}>
