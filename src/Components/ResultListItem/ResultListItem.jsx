@@ -54,13 +54,14 @@ export default function ResultListItem(props){
         filteredResults = results;
     }
    
+    console.log(filteredResults);
 
     
     
     return (
         <div className="result-list">
-            
-            {filteredResults.map((ele, index)=>{
+            {filteredResults[0]?
+             filteredResults.map((ele, index)=>{
                 if(filteredResults.length === index + 1){
                     return(
                         <div ref={lastItem} className="list-item" key={index} onClick={()=>{onClickFunction(ele.imdbID)}}>
@@ -84,7 +85,12 @@ export default function ResultListItem(props){
                     )
                 }
 
-            })}
+            })
+            :
+            <div style={{marginInline : "1.5rem", color : "grey", fontSize : "var(--step-0)", fontWeight : "400"}}>Could not find any results based on the current filters</div>
+            }
+
+           
         </div>
     )
 }
