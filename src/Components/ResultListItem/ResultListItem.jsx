@@ -54,7 +54,6 @@ export default function ResultListItem(props){
         filteredResults = results;
     }
    
-    console.log(filteredResults);
 
     
     
