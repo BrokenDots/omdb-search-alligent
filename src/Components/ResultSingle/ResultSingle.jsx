@@ -1,11 +1,30 @@
 import './ResultSingle.css';
 
 import useSearchSingle from "../../Custom Hooks/useSearchSingle";
+import { useState } from 'react';
 
 
 function ResultSingle(props){
     
     const item = useSearchSingle(props.id)
+
+    const [watchList, setWatchList] = useState([]);
+
+    function watchListAdd(){
+        setWatchList(prev => (
+            [...prev, item.imdbID]
+        ))
+    }
+
+    function watchListRemove(){
+        setWatchList(prev => (
+            prev.filter(ele => (
+                ele != item.imdbID
+            ))
+        ))
+    }
+
+   
 
     return(
         <div className="result-single">
@@ -14,7 +33,13 @@ function ResultSingle(props){
                 <div className="movie-hero">
                     <img className="poster" src={item.Poster} alt="" />
                     <div className="hero-text">
-                        <div className="watchlist-btn"><i className="fa-regular fa-bookmark" style={{marginRight : "0.5em"}}></i>Watchlist</div>
+                        {!watchList.includes(item.imdbID)?
+                        <div onClick={watchListAdd} className="watchlist-btn"><i className="fa-regular fa-bookmark" style={{marginRight : "0.5em"}}></i>Watchlist</div>
+                        :
+                        <div style={{background : "#fc6739"}} onClick={watchListRemove} className="watchlist-btn"><i className="fa-regular fa-bookmark" style={{marginRight : "0.5em"}}></i>Remove from watchlist</div>}
+
+                        
+
                         <div className="information">
                             <div className="title">{item.Title}</div>
                             <div className="additional-info">
