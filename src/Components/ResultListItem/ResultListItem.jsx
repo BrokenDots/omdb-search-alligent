@@ -58,29 +58,29 @@ export default function ResultListItem(props){
     
     
     return (
-        <div className="result-list">
+        <ul className="result-list">
             {filteredResults[0]?
              filteredResults.map((ele, index)=>{
                 if(filteredResults.length === index + 1){
                     return(
-                        <div ref={lastItem} className="list-item" key={index} onClick={()=>{onClickFunction(ele.imdbID)}}>
+                        <li tabIndex="0" ref={lastItem} className="list-item" key={index} onKeyDown={()=>{onClickFunction(ele.imdbID)}} onClick={()=>{onClickFunction(ele.imdbID)}}>
                             <img className="thumbnail" src={ele.Poster} alt="" />
                             <div className="small-info">
                                 <div className="item-title">{ele.Title}</div>
                                 <div className="item-year">{ele.Year}</div>
                             </div>
-                        </div>
+                        </li>
                     )
                 }
                 else{
                     return(
-                        <div className="list-item" key={index} onClick={()=>{onClickFunction(ele.imdbID)}}>
+                        <li tabIndex="0" className="list-item" key={index} onKeyDown={()=>{onClickFunction(ele.imdbID)}} onClick={()=>{onClickFunction(ele.imdbID)}}>
                             <img className="thumbnail" src={ele.Poster} alt="" />
                             <div className="small-info">
                                 <div className="item-title">{ele.Title}</div>
                                 <div className="item-year">{ele.Year}</div>
                             </div>
-                        </div>
+                        </li>
                     )
                 }
 
@@ -90,6 +90,6 @@ export default function ResultListItem(props){
             }
 
            
-        </div>
+        </ul>
     )
 }
