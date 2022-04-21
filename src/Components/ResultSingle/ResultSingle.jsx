@@ -34,9 +34,9 @@ function ResultSingle(props){
                     <img className="poster" src={item.Poster} alt="" />
                     <div className="hero-text">
                         {!watchList.includes(item.imdbID)?
-                        <div onClick={watchListAdd} className="watchlist-btn"><i className="fa-regular fa-bookmark" style={{marginRight : "0.5em"}}></i>Watchlist</div>
+                        <div role="button" onClick={watchListAdd} className="watchlist-btn"><i className="fa-regular fa-bookmark" style={{marginRight : "0.5em"}}></i>Watchlist</div>
                         :
-                        <div style={{background : "#fc6739"}} onClick={watchListRemove} className="watchlist-btn"><i className="fa-regular fa-bookmark" style={{marginRight : "0.5em"}}></i>Remove from watchlist</div>}
+                        <div role="button" style={{background : "#fc6739"}} onClick={watchListRemove} className="watchlist-btn"><i className="fa-regular fa-bookmark" style={{marginRight : "0.5em"}}></i>Remove from watchlist</div>}
 
                         
 
